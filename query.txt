@@ -1,0 +1,86 @@
+CREATE TABLE `Mentor` (
+    `mentor_id` int,
+    `name` varchar,
+    `mail_address` varchar,
+    `phn_number` int,
+    `password` char(60),
+    PRIMARY KEY (`mentor_id`),
+    KEY `Key` (`name`, `mail_address`, `phn_number`, `password`)
+  );
+  
+  CREATE TABLE `Course` (
+    `course_id` int,
+    `course_name` varchar,
+    `course_duration` varchar,
+    `start_date` date,
+    PRIMARY KEY (`course_id`),
+    KEY `Key` (`course_name`, `course_duration`, `start_date`)
+  );
+  
+  CREATE TABLE `Student` (
+    `student_id` int,
+    `name` varchar,
+    `mail_address` varchar,
+    `phn_number` int,
+    `password` char(60),
+    `batch_id` int,
+    PRIMARY KEY (`student_id`),
+    KEY `Key` (`name`, `mail_address`, `phn_number`, `password`, `batch_id`)
+  );
+  
+  CREATE TABLE `Query` (
+    `query_id` int,
+    `desc` text,
+    `state` varchar,
+    `created_date` date,
+    PRIMARY KEY (`query_id`),
+    KEY `Key` (`desc`, `state`, `created_date`)
+  );
+  
+  CREATE TABLE `Topic` (
+    `topic_id` int,
+    `topic_name` varchar,
+    `course_id` int,
+    `task_id` int,
+    PRIMARY KEY (`topic_id`),
+    KEY `Key` (`topic_name`, `course_id`, `task_id`)
+  );
+  
+  CREATE TABLE `Task` (
+    `task_id` int,
+    `task_name` varchar,
+    `total_mark` int,
+    `mark_obtained` float,
+    `state` varchar,
+    PRIMARY KEY (`task_id`),
+    KEY `Key` (`task_name`, `total_mark`, `mark_obtained`, `state`)
+  );
+  
+  CREATE TABLE `Batch` (
+    `batch_id` int,
+    `batch_no` int,
+    `course_id` int,
+    `mentor_id` int,
+    PRIMARY KEY (`batch_id`),
+    KEY `Key` (`batch_no`, `course_id`, `mentor_id`)
+  );
+  
+  CREATE TABLE `capstone ` (
+    `prj_id` int,
+    `description` text,
+    `due_date` date,
+    `marks` int,
+    PRIMARY KEY (`prj_id`),
+    KEY `Key` (`description`, `due_date`, `marks`)
+  );
+  
+  CREATE TABLE `Leave_Applicarion` (
+    `leave_id` int,
+    `reason` text,
+    `no.of_days` int,
+    PRIMARY KEY (`leave_id`),
+    FOREIGN KEY (`reason`) REFERENCES `Student`(`password`),
+    KEY `Key` (`reason`, `no.of_days`)
+  );
+  
+  
